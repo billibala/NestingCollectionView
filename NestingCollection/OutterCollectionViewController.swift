@@ -73,7 +73,7 @@ class OutterCollectionViewController: UICollectionViewController {
 			
 			return cell
 		} else {
-			let row = indexPath.row + (indexPath.row < 2 ? 0 : 1)
+			let row = indexPath.row + (indexPath.row < 2 ? 0 : -1)
 			// normal content cell
 			let cell = collectionView.dequeueReusableCellWithReuseIdentifier(LabelCellIdentifier, forIndexPath: indexPath) as! SimpleLabelCell
 			cell.product = products[row]

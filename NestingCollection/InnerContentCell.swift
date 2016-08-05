@@ -44,7 +44,7 @@ class InnerContentCell: UICollectionViewCell {
 		let superAttributes = super.preferredLayoutAttributesFittingAttributes(layoutAttributes)
 		
 		superAttributes.size.width = layoutAttributes.size.width
-		superAttributes.size.height = 300
+		superAttributes.size.height = 320
 		
 		return superAttributes
 	}

@@ -15,8 +15,9 @@ class ContainerCell: UICollectionViewCell, UICollectionViewDataSource {
 	
 	private let nestedCollectionView: UICollectionView = {
 		let flowLayout = UICollectionViewFlowLayout()
-		flowLayout.estimatedItemSize = CGSize(width: 168, height: 300)
-		flowLayout.scrollDirection = .Horizontal
+		flowLayout.estimatedItemSize = CGSize(width: 168, height: 320)
+		flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+flowLayout.scrollDirection = .Horizontal
 		
 		let view = UICollectionView(frame: CGRectZero, collectionViewLayout: flowLayout)
 		view.translatesAutoresizingMaskIntoConstraints = false
