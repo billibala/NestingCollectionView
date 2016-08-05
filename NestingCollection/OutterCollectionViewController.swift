@@ -9,7 +9,7 @@
 import UIKit
 
 private let ContainerCellIdentifier = "ContainerCellIdentifier"
-private let ContentCellIdentifier = "ContentCellIdentifier"
+private let LabelCellIdentifier = "ContentCellIdentifier"
 
 class OutterCollectionViewController: UICollectionViewController {
 	
@@ -26,7 +26,7 @@ class OutterCollectionViewController: UICollectionViewController {
 			fatalError()
 		}
 		
-		collectionView.registerClass(InnerContentCell.self, forCellWithReuseIdentifier: ContentCellIdentifier)
+		collectionView.registerClass(SimpleLabelCell.self, forCellWithReuseIdentifier: LabelCellIdentifier)
 		collectionView.registerClass(ContainerCell.self, forCellWithReuseIdentifier: ContainerCellIdentifier)
 
 		if let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout {
@@ -66,17 +66,17 @@ class OutterCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-		if indexPath.row == 0 {
+		if indexPath.row == 2 {
 			// build a nested collection view
 			let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ContainerCellIdentifier, forIndexPath: indexPath) as! ContainerCell
-			
-			
+			cell.products = nestedProducts
 			
 			return cell
 		} else {
+			let row = indexPath.row + (indexPath.row < 2 ? 0 : 1)
 			// normal content cell
-			let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ContentCellIdentifier, forIndexPath: indexPath) as! InnerContentCell
-			cell.product = products[indexPath.row - 1]
+			let cell = collectionView.dequeueReusableCellWithReuseIdentifier(LabelCellIdentifier, forIndexPath: indexPath) as! SimpleLabelCell
+			cell.product = products[row]
 
 			return cell
 		}

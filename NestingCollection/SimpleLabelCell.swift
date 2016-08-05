@@ -1,5 +1,5 @@
 //
-//  InnerContentCell.swift
+//  SimpleLabelCell.swift
 //  NestingCollection
 //
 //  Created by Bill So on 8/5/16.
@@ -8,18 +8,19 @@
 
 import UIKit
 
-class InnerContentCell: UICollectionViewCell {
+class SimpleLabelCell: UICollectionViewCell {
 	var product: Product! {
 		didSet {
 			textLabel.text = product.name
 		}
 	}
-	
+
 	let textLabel: UILabel = {
 		let label = UILabel(frame: CGRectZero)
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.numberOfLines = 0
-		label.preferredMaxLayoutWidth = 120
+		label.setContentCompressionResistancePriority(UILayoutPriorityDefaultHigh - 1, forAxis: .Horizontal)
+//		label.preferredMaxLayoutWidth = 120
 		
 		return label
 	}()
@@ -44,7 +45,7 @@ class InnerContentCell: UICollectionViewCell {
 		let superAttributes = super.preferredLayoutAttributesFittingAttributes(layoutAttributes)
 		
 		superAttributes.size.width = layoutAttributes.size.width
-		superAttributes.size.height = 300
+		print("simple cell width: \(superAttributes.size.width)")
 		
 		return superAttributes
 	}
