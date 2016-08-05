@@ -49,11 +49,6 @@ flowLayout.scrollDirection = .Horizontal
 		NSLayoutConstraint(item: nestedCollectionView, attribute: .Leading, relatedBy: .Equal, toItem: contentView, attribute: .Leading, multiplier: 1, constant: 0).active = true
 		NSLayoutConstraint(item: nestedCollectionView, attribute: .Trailing, relatedBy: .Equal, toItem: contentView, attribute: .Trailing, multiplier: 1, constant: 0).active = true
 		NSLayoutConstraint(item: nestedCollectionView, attribute: .Bottom, relatedBy: .Equal, toItem: contentView, attribute: .Bottom, multiplier: 1, constant: 0).active = true
-
-//		contentView.layoutMarginsGuide.leadingAnchor.constraintEqualToAnchor(nestedCollectionView.leadingAnchor).active = true
-//		contentView.layoutMarginsGuide.trailingAnchor.constraintEqualToAnchor(nestedCollectionView.trailingAnchor).active = true
-//		contentView.layoutMarginsGuide.topAnchor.constraintEqualToAnchor(nestedCollectionView.topAnchor).active = true
-//		contentView.layoutMarginsGuide.bottomAnchor.constraintEqualToAnchor(nestedCollectionView.bottomAnchor).active = true
 		
 		nestedCollectionView.dataSource = self
 	}
@@ -62,14 +57,17 @@ flowLayout.scrollDirection = .Horizontal
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	override func preferredLayoutAttributesFittingAttributes(layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-		let superAttributes = super.preferredLayoutAttributesFittingAttributes(layoutAttributes)
-		superAttributes.size.width = layoutAttributes.size.width
-		superAttributes.size.height = 400
-		print("container width: \(superAttributes.size.width)")
-		
-		return superAttributes
-	}
+	// ========================================
+	// Uncomment this method to solve the crash
+	// ========================================
+//	override func preferredLayoutAttributesFittingAttributes(layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+//		let superAttributes = super.preferredLayoutAttributesFittingAttributes(layoutAttributes)
+//		superAttributes.size.width = layoutAttributes.size.width
+//		superAttributes.size.height = 400
+//		print("container width: \(superAttributes.size.width)")
+//		
+//		return superAttributes
+//	}
 	
 	//MARK: data source
 	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
