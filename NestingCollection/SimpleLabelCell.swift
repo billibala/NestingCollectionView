@@ -11,7 +11,7 @@ import UIKit
 class SimpleLabelCell: UICollectionViewCell {
 	var product: Product! {
 		didSet {
-			textLabel.text = product.name
+			textLabel.text = product.name + "\n" + product.name + "\n" + product.name
 		}
 	}
 
@@ -45,7 +45,6 @@ class SimpleLabelCell: UICollectionViewCell {
 		let superAttributes = super.preferredLayoutAttributesFittingAttributes(layoutAttributes)
 		
 		superAttributes.size.width = layoutAttributes.size.width
-		print("simple cell width: \(superAttributes.size.width)")
 		
 		return superAttributes
 	}

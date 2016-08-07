@@ -11,7 +11,12 @@ import UIKit
 private let ContentCellIdentifier = "ContentCellIdentifier"
 
 class ContainerCell: UICollectionViewCell, UICollectionViewDataSource {
-	var products: [Product]?
+	var products: [Product]? {
+		didSet {
+			nestedCollectionView.dataSource = self
+			nestedCollectionView.reloadData()
+		}
+	}
 	
 	private let nestedCollectionView: UICollectionView = {
 		let flowLayout = UICollectionViewFlowLayout()
@@ -50,7 +55,6 @@ flowLayout.scrollDirection = .Horizontal
 		NSLayoutConstraint(item: nestedCollectionView, attribute: .Trailing, relatedBy: .Equal, toItem: contentView, attribute: .Trailing, multiplier: 1, constant: 0).active = true
 		NSLayoutConstraint(item: nestedCollectionView, attribute: .Bottom, relatedBy: .Equal, toItem: contentView, attribute: .Bottom, multiplier: 1, constant: 0).active = true
 		
-		nestedCollectionView.dataSource = self
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -60,14 +64,14 @@ flowLayout.scrollDirection = .Horizontal
 	// ========================================
 	// Uncomment this method to solve the crash
 	// ========================================
-//	override func preferredLayoutAttributesFittingAttributes(layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-//		let superAttributes = super.preferredLayoutAttributesFittingAttributes(layoutAttributes)
-//		superAttributes.size.width = layoutAttributes.size.width
-//		superAttributes.size.height = 400
-//		print("container width: \(superAttributes.size.width)")
-//		
-//		return superAttributes
-//	}
+	override func preferredLayoutAttributesFittingAttributes(layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+		let superAttributes = super.preferredLayoutAttributesFittingAttributes(layoutAttributes)
+		superAttributes.size.width = layoutAttributes.size.width
+		superAttributes.size.height = 400
+		print("container width: \(superAttributes.size.width)")
+		
+		return superAttributes
+	}
 	
 	//MARK: data source
 	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -80,6 +84,20 @@ flowLayout.scrollDirection = .Horizontal
 		cell.product = products![indexPath.row]
 		
 		return cell
+	}
+	
+	override func layoutSubviews() {
+		super.layoutSubviews()
+		print("layout subviews \(contentView.bounds.size)")
+		if contentView.bounds.size.height > 100 {
+//			self.performSelector(#selector(UICollectionView.reloadData), withObject: nestedCollectionView, afterDelay: 3)
+//			nestedCollectionView.reloadData()
+		}
+	}
+	
+	override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
+		print("apply layout attributes")
+		super.applyLayoutAttributes(layoutAttributes)
 	}
 }
 

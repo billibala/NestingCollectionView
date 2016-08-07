@@ -33,7 +33,7 @@ class OutterCollectionViewController: UICollectionViewController {
 			let width = collectionView.bounds.size.width
 			let contentInsets = UIEdgeInsets(top: 16, left: 12, bottom: 16, right: 12)
 			// use self-sizing cell
-			flowLayout.estimatedItemSize = CGSize(width: width - contentInsets.left - contentInsets.right, height: 80)
+			flowLayout.estimatedItemSize = CGSize(width: width - contentInsets.left - contentInsets.right, height: 50)
 			flowLayout.sectionInset = contentInsets
 			flowLayout.scrollDirection = .Vertical
 			flowLayout.minimumLineSpacing = 12

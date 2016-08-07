@@ -17,6 +17,7 @@
 		A9C627721D545C6900CEF296 /* InnerContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C627711D545C6900CEF296 /* InnerContentCell.swift */; };
 		A9C627741D5460FF00CEF296 /* ContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C627731D5460FF00CEF296 /* ContainerCell.swift */; };
 		A9E474A11D5477DC004D964F /* SimpleLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E474A01D5477DC004D964F /* SimpleLabelCell.swift */; };
+		A9E474A31D552A16004D964F /* DifferentOrderOtterCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E474A21D552A16004D964F /* DifferentOrderOtterCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		A9C627711D545C6900CEF296 /* InnerContentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InnerContentCell.swift; sourceTree = "<group>"; };
 		A9C627731D5460FF00CEF296 /* ContainerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerCell.swift; sourceTree = "<group>"; };
 		A9E474A01D5477DC004D964F /* SimpleLabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleLabelCell.swift; sourceTree = "<group>"; };
+		A9E474A21D552A16004D964F /* DifferentOrderOtterCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifferentOrderOtterCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				A9C627591D5452DD00CEF296 /* AppDelegate.swift */,
 				A9C6276F1D5453A800CEF296 /* ProductModel.swift */,
 				A9C6276B1D54533000CEF296 /* OutterCollectionViewController.swift */,
+				A9E474A21D552A16004D964F /* DifferentOrderOtterCollectionViewController.swift */,
 				A9C627731D5460FF00CEF296 /* ContainerCell.swift */,
 				A9C627711D545C6900CEF296 /* InnerContentCell.swift */,
 				A9E474A01D5477DC004D964F /* SimpleLabelCell.swift */,
@@ -150,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9E474A31D552A16004D964F /* DifferentOrderOtterCollectionViewController.swift in Sources */,
 				A9C6275C1D5452DD00CEF296 /* ViewController.swift in Sources */,
 				A9E474A11D5477DC004D964F /* SimpleLabelCell.swift in Sources */,
 				A9C627741D5460FF00CEF296 /* ContainerCell.swift in Sources */,
