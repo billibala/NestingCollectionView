@@ -8,7 +8,7 @@
 
 import UIKit
 
-private let ContentCellIdentifier = "ContentCellIdentifier"
+let ContentCellIdentifier = "ContentCellIdentifier"
 
 class ContainerCell: UICollectionViewCell, UICollectionViewDataSource {
 	var products: [Product]? {

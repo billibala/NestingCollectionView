@@ -8,8 +8,8 @@
 
 import UIKit
 
-private let ContainerCellIdentifier = "ContainerCellIdentifier"
-private let LabelCellIdentifier = "ContentCellIdentifier"
+let ContainerCellIdentifier = "ContainerCellIdentifier"
+let LabelCellIdentifier = "ContentCellIdentifier"
 
 class OutterCollectionViewController: UICollectionViewController {
 	

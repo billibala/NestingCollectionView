@@ -29,6 +29,30 @@
             </objects>
             <point key="canvasLocation" x="1008" y="398"/>
         </scene>
+        <!--Third Outter Collection View Controller-->
+        <scene sceneID="swV-rM-FdG">
+            <objects>
+                <collectionViewController id="2iB-fY-dI3" customClass="ThirdOutterCollectionViewController" customModule="NestingCollection" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="xjq-bm-Q0v">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TgK-bJ-7SD">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="2iB-fY-dI3" id="tWL-cr-sKz"/>
+                            <outlet property="delegate" destination="2iB-fY-dI3" id="Uwt-jf-vJ5"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QBp-qg-662" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="997" y="1851"/>
+        </scene>
         <!--Complete Fix-->
         <scene sceneID="wNo-xB-vjU">
             <objects>
@@ -56,7 +80,6 @@
         <!--Root View Controller-->
         <scene sceneID="Fzw-Wf-gSt">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rx5-gI-LwQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController definesPresentationContext="YES" id="hXg-Om-fjg" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="uJU-UY-iZ8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -105,6 +128,26 @@
                                             <segue destination="NJ9-dq-g5p" kind="show" id="8R4-8l-3At"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="Fft-fq-uWH" style="IBUITableViewCellStyleDefault" id="tGU-AG-dut">
+                                        <rect key="frame" x="0.0" y="152" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tGU-AG-dut" id="guN-GW-OSJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Nested Collection Controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fft-fq-uWH">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="2iB-fY-dI3" kind="show" id="xfz-uv-OUe"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -115,6 +158,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="D8w-Kh-dxH"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rx5-gI-LwQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="260" y="751"/>
         </scene>

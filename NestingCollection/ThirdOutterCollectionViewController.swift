@@ -1,17 +1,20 @@
 //
-//  DifferentOrderOtterCollectionViewController.swift
+//  ThirdOutterCollectionViewController.swift
 //  NestingCollection
 //
-//  Created by Bill So on 8/6/16.
+//  Created by Bill So on 8/7/16.
 //  Copyright © 2016 Headnix. All rights reserved.
 //
 
 import UIKit
 
-class DifferentOrderOtterCollectionViewController: UICollectionViewController {
+let SecondContainerCellIdentifier = "SecondContainerCellIdentifier"
+
+class ThirdOutterCollectionViewController: UICollectionViewController {
 	
 	let products = ProductUtility.randomGenerate(numberOf: 20)
 	let nestedProducts = ProductUtility.randomGenerate(numberOf: 4)
+	let secondNestedProducts = ProductUtility.randomGenerate(numberOf: 9)
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -24,7 +27,8 @@ class DifferentOrderOtterCollectionViewController: UICollectionViewController {
 		}
 		
 		collectionView.registerClass(SimpleLabelCell.self, forCellWithReuseIdentifier: LabelCellIdentifier)
-		collectionView.registerClass(ContainerCell.self, forCellWithReuseIdentifier: ContainerCellIdentifier)
+		collectionView.registerClass(ControllerContainingCollectionViewCell.self, forCellWithReuseIdentifier: ContainerCellIdentifier)
+		collectionView.registerClass(ControllerContainingCollectionViewCell.self, forCellWithReuseIdentifier: SecondContainerCellIdentifier)
 		
 		if let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout {
 			let width = collectionView.bounds.size.width
@@ -44,31 +48,30 @@ class DifferentOrderOtterCollectionViewController: UICollectionViewController {
 		// Dispose of any resources that can be recreated.
 	}
 	
-	/*
-	// MARK: - Navigation
-	
-	// In a storyboard-based application, you will often want to do a little preparation before navigation
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-	// Get the new view controller using [segue destinationViewController].
-	// Pass the selected object to the new view controller.
-	}
-	*/
-	
 	// MARK: UICollectionViewDataSource
 	
 	override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		// extra 1 is the `nestedProducts`
-		return products.count + 1
+		// 2 extras for the nested cells
+		return products.count + 2
 	}
 	
 	override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-		if indexPath.row == 10 {
+		switch indexPath.row {
+		case 10:
 			// build a nested collection view
-			let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ContainerCellIdentifier, forIndexPath: indexPath) as! ContainerCell
-//			cell.products = nestedProducts
+			let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ContainerCellIdentifier, forIndexPath: indexPath) as! ControllerContainingCollectionViewCell
+			cell.parentController = self
+			cell.products = nestedProducts
 			
 			return cell
-		} else {
+		case 21:
+			// build a nested collection view
+			let cell = collectionView.dequeueReusableCellWithReuseIdentifier(SecondContainerCellIdentifier, forIndexPath: indexPath) as! ControllerContainingCollectionViewCell
+			cell.parentController = self
+			cell.products = secondNestedProducts
+			
+			return cell
+		default:
 			let row = indexPath.row + (indexPath.row < 10 ? 0 : -1)
 			// normal content cell
 			let cell = collectionView.dequeueReusableCellWithReuseIdentifier(LabelCellIdentifier, forIndexPath: indexPath) as! SimpleLabelCell
@@ -80,18 +83,25 @@ class DifferentOrderOtterCollectionViewController: UICollectionViewController {
 	
 	// MARK: UICollectionViewDelegate
 	var firstPass = true
+	var anotherRowFirstPass = true
 	
 	override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
 		if indexPath.row == 10 {
 			// set data source only when the cell is about to display
-			if let cell = cell as? ContainerCell {
-				print("will display container cell \(indexPath)")
-				if !firstPass && cell.products == nil {
-//					cell.products = nestedProducts
-				}
+			if let cell = cell as? ControllerContainingCollectionViewCell {
 				if firstPass {
 					firstPass = false
+				} else {
+					cell.presentNestedCollectionController()
 				}
+			}
+		} else if indexPath.row == 21 {
+			if let cell = cell as? ControllerContainingCollectionViewCell {
+//				if anotherRowFirstPass {
+//					anotherRowFirstPass = false
+//				} else {
+					cell.presentNestedCollectionController()
+//				}
 			}
 		}
 	}
