@@ -58,7 +58,7 @@
         <!--Complete Fix-->
         <scene sceneID="wNo-xB-vjU">
             <objects>
-                <collectionViewController title="Complete Fix" id="NJ9-dq-g5p" customClass="FailCasePartialFixOutterCollectionViewController" customModule="NestingCollection" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController title="Complete Fix" id="NJ9-dq-g5p" customClass="CompleteFixOutterCollectionViewController" customModule="NestingCollection" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="thm-sX-Xzr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

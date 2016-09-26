@@ -17,6 +17,7 @@ class OutterCollectionViewController: UICollectionViewController {
 	var nestedProducts = ProductUtility.randomGenerate(numberOf: 4)
 	var nestedViewPositionIndex = 2
 	var useCellAttributesFix: Bool = false
+	var isLoadingProductDataOnCreate: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +76,9 @@ class OutterCollectionViewController: UICollectionViewController {
 		if indexPath.row == nestedViewPositionIndex {
 			// build a nested collection view
 			let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ContainerCellIdentifier, forIndexPath: indexPath) as! ContainerCell
-			cell.products = nestedProducts
+			if isLoadingProductDataOnCreate {
+				cell.products = nestedProducts
+			}
 			
 			return cell
 		} else {

@@ -45,6 +45,8 @@ class SimpleLabelCell: UICollectionViewCell {
 		let superAttributes = super.preferredLayoutAttributesFittingAttributes(layoutAttributes)
 		
 		superAttributes.size.width = layoutAttributes.size.width
+
+		print("simple text cell width: \(layoutAttributes.size.width)")
 		
 		return superAttributes
 	}
