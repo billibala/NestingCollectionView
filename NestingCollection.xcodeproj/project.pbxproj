@@ -10,7 +10,7 @@
 		A92318C41D57BC86000AF0A6 /* HorizontalCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92318C31D57BC86000AF0A6 /* HorizontalCollectionViewController.swift */; };
 		A95B8CFA1D9911C3008D4493 /* ExampleShowcaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95B8CF91D9911C3008D4493 /* ExampleShowcaseTableViewController.swift */; };
 		A95B8CFF1D992BB1008D4493 /* DifferentOrderOtterCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95B8CFE1D992BB1008D4493 /* DifferentOrderOtterCollectionViewController.swift */; };
-		A95B8D011D992CD0008D4493 /* CompleteFixOutterCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95B8D001D992CD0008D4493 /* CompleteFixOutterCollectionViewController.swift */; };
+		A95B8D011D992CD0008D4493 /* MoreResearchOutterCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95B8D001D992CD0008D4493 /* MoreResearchOutterCollectionViewController.swift */; };
 		A9ADD2AC1D57976000C508D1 /* ControllerContainingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9ADD2AB1D57976000C508D1 /* ControllerContainingCollectionViewCell.swift */; };
 		A9C6275A1D5452DD00CEF296 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C627591D5452DD00CEF296 /* AppDelegate.swift */; };
 		A9C6275F1D5452DD00CEF296 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9C6275D1D5452DD00CEF296 /* Main.storyboard */; };
@@ -29,7 +29,7 @@
 		A92318C31D57BC86000AF0A6 /* HorizontalCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalCollectionViewController.swift; sourceTree = "<group>"; };
 		A95B8CF91D9911C3008D4493 /* ExampleShowcaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleShowcaseTableViewController.swift; sourceTree = "<group>"; };
 		A95B8CFE1D992BB1008D4493 /* DifferentOrderOtterCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifferentOrderOtterCollectionViewController.swift; sourceTree = "<group>"; };
-		A95B8D001D992CD0008D4493 /* CompleteFixOutterCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteFixOutterCollectionViewController.swift; sourceTree = "<group>"; };
+		A95B8D001D992CD0008D4493 /* MoreResearchOutterCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreResearchOutterCollectionViewController.swift; sourceTree = "<group>"; };
 		A9ADD2AB1D57976000C508D1 /* ControllerContainingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerContainingCollectionViewCell.swift; sourceTree = "<group>"; };
 		A9C627561D5452DD00CEF296 /* NestingCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NestingCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9C627591D5452DD00CEF296 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 			children = (
 				A95B8CFE1D992BB1008D4493 /* DifferentOrderOtterCollectionViewController.swift */,
 				A9C6276B1D54533000CEF296 /* OutterCollectionViewController.swift */,
-				A95B8D001D992CD0008D4493 /* CompleteFixOutterCollectionViewController.swift */,
+				A95B8D001D992CD0008D4493 /* MoreResearchOutterCollectionViewController.swift */,
 				A9E474A21D552A16004D964F /* FailCasePartialFixOutterCollectionViewController.swift */,
 				A9E474A41D5725B2004D964F /* ThirdOutterCollectionViewController.swift */,
 				A92318C31D57BC86000AF0A6 /* HorizontalCollectionViewController.swift */,
@@ -192,7 +192,7 @@
 				A9E474A31D552A16004D964F /* FailCasePartialFixOutterCollectionViewController.swift in Sources */,
 				A95B8CFA1D9911C3008D4493 /* ExampleShowcaseTableViewController.swift in Sources */,
 				A9E474A11D5477DC004D964F /* SimpleLabelCell.swift in Sources */,
-				A95B8D011D992CD0008D4493 /* CompleteFixOutterCollectionViewController.swift in Sources */,
+				A95B8D011D992CD0008D4493 /* MoreResearchOutterCollectionViewController.swift in Sources */,
 				A9E474A51D5725B2004D964F /* ThirdOutterCollectionViewController.swift in Sources */,
 				A9C627741D5460FF00CEF296 /* ContainerCell.swift in Sources */,
 				A9C6275A1D5452DD00CEF296 /* AppDelegate.swift in Sources */,

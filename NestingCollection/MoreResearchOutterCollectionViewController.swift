@@ -1,5 +1,5 @@
 //
-//  CompleteFixOutterCollectionViewController.swift
+//  MoreResearchOutterCollectionViewController.swift
 //  NestingCollection
 //
 //  Created by Bill So on 9/26/16.
@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class CompleteFixOutterCollectionViewController: OutterCollectionViewController {
+class MoreResearchOutterCollectionViewController: OutterCollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

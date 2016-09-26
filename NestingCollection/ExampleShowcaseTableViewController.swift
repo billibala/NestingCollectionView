@@ -28,7 +28,7 @@ class ExampleShowcaseTableViewController: UITableViewController {
 			vc.useCellAttributesFix = true
 
 		case "CompleteFix":
-			let vc = segue.destinationViewController as! CompleteFixOutterCollectionViewController
+			let vc = segue.destinationViewController as! MoreResearchOutterCollectionViewController
 			vc.useCellAttributesFix = true
 
 		default:
