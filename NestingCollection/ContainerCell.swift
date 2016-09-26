@@ -61,18 +61,6 @@ flowLayout.scrollDirection = .Horizontal
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	// ========================================
-	// Uncomment this method to solve the crash
-	// ========================================
-	override func preferredLayoutAttributesFittingAttributes(layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-		let superAttributes = super.preferredLayoutAttributesFittingAttributes(layoutAttributes)
-		superAttributes.size.width = layoutAttributes.size.width
-		superAttributes.size.height = 400
-		print("container width: \(superAttributes.size.width)")
-		
-		return superAttributes
-	}
-	
 	//MARK: data source
 	func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return products?.count ?? 0
@@ -98,6 +86,17 @@ flowLayout.scrollDirection = .Horizontal
 	override func applyLayoutAttributes(layoutAttributes: UICollectionViewLayoutAttributes) {
 		print("apply layout attributes")
 		super.applyLayoutAttributes(layoutAttributes)
+	}
+}
+
+class LayoutAttributesModifyingContainerCell: ContainerCell {
+	override func preferredLayoutAttributesFittingAttributes(layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+		let superAttributes = super.preferredLayoutAttributesFittingAttributes(layoutAttributes)
+		superAttributes.size.width = layoutAttributes.size.width
+		superAttributes.size.height = 400
+		print("container width: \(superAttributes.size.width)")
+
+		return superAttributes
 	}
 }
 

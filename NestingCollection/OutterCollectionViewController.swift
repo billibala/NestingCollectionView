@@ -13,8 +13,10 @@ let LabelCellIdentifier = "ContentCellIdentifier"
 
 class OutterCollectionViewController: UICollectionViewController {
 	
-	let products = ProductUtility.randomGenerate(numberOf: 10)
-	let nestedProducts = ProductUtility.randomGenerate(numberOf: 4)
+	var products = ProductUtility.randomGenerate(numberOf: 10)
+	var nestedProducts = ProductUtility.randomGenerate(numberOf: 4)
+	var nestedViewPositionIndex = 2
+	var useCellAttributesFix: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +29,11 @@ class OutterCollectionViewController: UICollectionViewController {
 		}
 		
 		collectionView.registerClass(SimpleLabelCell.self, forCellWithReuseIdentifier: LabelCellIdentifier)
-		collectionView.registerClass(ContainerCell.self, forCellWithReuseIdentifier: ContainerCellIdentifier)
+		if useCellAttributesFix {
+			collectionView.registerClass(LayoutAttributesModifyingContainerCell.self, forCellWithReuseIdentifier: ContainerCellIdentifier)
+		} else {
+			collectionView.registerClass(ContainerCell.self, forCellWithReuseIdentifier: ContainerCellIdentifier)
+		}
 
 		if let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout {
 			let width = collectionView.bounds.size.width
@@ -66,14 +72,14 @@ class OutterCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-		if indexPath.row == 2 {
+		if indexPath.row == nestedViewPositionIndex {
 			// build a nested collection view
 			let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ContainerCellIdentifier, forIndexPath: indexPath) as! ContainerCell
 			cell.products = nestedProducts
 			
 			return cell
 		} else {
-			let row = indexPath.row + (indexPath.row < 2 ? 0 : -1)
+			let row = indexPath.row + (indexPath.row < nestedViewPositionIndex ? 0 : -1)
 			// normal content cell
 			let cell = collectionView.dequeueReusableCellWithReuseIdentifier(LabelCellIdentifier, forIndexPath: indexPath) as! SimpleLabelCell
 			cell.product = products[row]
